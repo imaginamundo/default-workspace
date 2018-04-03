@@ -30,7 +30,7 @@ Minified and transpiled for every file.
 Common Javascript for every page.
 
 ## Distribution
-- dist/js
+- /js
     - vendor
         - plugin_1.min.js
         - plugin_2.min.js
