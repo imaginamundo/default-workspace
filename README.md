@@ -1,3 +1,11 @@
+# Imagina Mundo default workspace
+Created to use vanilla Javascript with ES6 and Sass.
+Using Webpack to make ES6 compatible with current browsers and Gulp to compile CSS files.
+
+## Commands
+`yarn build` or `npm run build`: Build static assets;
+`yarn watch` or `npm run watch`: Watch for changes on Sass and Javascript and generate files;
+
 ## Source
 - [/js](#javascript-src)
     - [/vendor](#vendor-src)
@@ -11,7 +19,7 @@
         - contact.js
     - [global.js](#global-javascript-file)
 - [/scss](#sass-src)
-    - */**.scss
+    - **/*.scss
 
 ### Javascript src
 Generated with webpack. Use ES6 features and ESlinter.
