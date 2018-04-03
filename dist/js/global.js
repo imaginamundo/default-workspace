@@ -71,9 +71,22 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-throw new Error("Module parse failed: Identifier 'test' has already been declared (5:4)\nYou may need an appropriate loader to handle this file type.\n| console.log(test());\n| alert('Show!');\n| var test = 'naruto';");
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_test__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+
+
+console.log(Object(_components_test__WEBPACK_IMPORTED_MODULE_0__["default"])());
+
+/***/ }),
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (() => 'Hello world!');
 
 /***/ })
 /******/ ]);

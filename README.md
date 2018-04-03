@@ -1,5 +1,6 @@
 # Imagina Mundo default workspace
 Created to use vanilla Javascript with ES6 and Sass.
+
 Using Webpack to make ES6 compatible with current browsers and Gulp to compile CSS files.
 
 ## Commands
