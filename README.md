@@ -1,5 +1,5 @@
 ## Source
-- /js
+- [/js](#javascript-src)
     - [/vendor](#vendor-src)
         - plugin_1.js
         - plugin_2.js
@@ -9,7 +9,14 @@
     - [/structure](#structure-src)
         - home.js
         - contact.js
-    - [global.js](#global-file)
+    - [global.js](#global-javascript-file)
+- [/scss](#sass-src)
+    - */**.scss
+
+### Javascript src
+Generated with webpack. Use ES6 features and ESlinter.
+
+*To do:* Configure eslinter
 
 ### Vendor src
 External plugins or libraries without codebase dependencies, like *jQuery*, *Flickity* or others.
@@ -26,8 +33,11 @@ For specifics `.js`, can be used if you want multiple files for each page.
 
 Minified and transpiled for every file.
 
-### Global file
+### Global javascript file
 Common Javascript for every page.
+
+### Sass src
+Generated with Gulp.
 
 ## Distribution
 - /js
@@ -38,3 +48,5 @@ Common Javascript for every page.
         - home.js
         - contact.js
     - global.js
+- /css
+    - **/*.css
