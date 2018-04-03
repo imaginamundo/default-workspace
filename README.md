@@ -4,6 +4,7 @@ Using Webpack to make ES6 compatible with current browsers and Gulp to compile C
 
 ## Commands
 `yarn build` or `npm run build`: Build static assets;
+
 `yarn watch` or `npm run watch`: Watch for changes on Sass and Javascript and generate files;
 
 ## Source
