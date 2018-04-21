@@ -1,11 +1,9 @@
 require('dotenv').config();
 
-const fs = require('fs');
-const path = require('path');
+const { resolve } = require('path');
+const { dynamicEntries } = require('./_helpers');
 
-const helper = require('./_helpers');
-
-const structureEntries = helper.dynamicEntries(
+const structureEntries = dynamicEntries(
     `${ process.env.WEBPACK_SRC_JS }/structure`,
     'js'
 );
@@ -20,7 +18,7 @@ module.exports = {
     entry: entries,
     output: {
         filename: '[name].js',
-        path: path.resolve(__dirname, 'dist')
+        path: resolve(__dirname, 'dist')
     },
     devtool: 'source-map',
     module: {
