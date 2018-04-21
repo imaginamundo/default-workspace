@@ -17,6 +17,7 @@
     "webpack-cli": "^2.0.13"
   },
   "dependencies": {
+    "dotenv": "^5.0.1",
     "remove": "^0.1.5"
   },
   "eslintConfig": {
