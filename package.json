@@ -5,6 +5,7 @@
   "author": "Diogo Ferreira Fernandes",
   "license": "MIT",
   "scripts": {
+    "start": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
     "watch": "webpack --watch"

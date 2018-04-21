@@ -1,16 +1,17 @@
+require('dotenv').config();
+
 const fs = require('fs');
 const path = require('path');
 
-const config = require('./_config');
 const helper = require('./_helpers');
 
 const structureEntries = helper.dynamicEntries(
-    `${ config.src.js }/structure`,
+    `${ process.env.WEBPACK_SRC_JS }/structure`,
     'js'
 );
 
 const entries = {
-    'js/global': `${ config.src.js }/global.js`,
+    'js/global': `${ process.env.WEBPACK_SRC_JS }/global.js`,
     ...structureEntries
 }
 
