@@ -6,17 +6,12 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "concurrently \"webpack\" \"gulp\"",
-    "watch": "concurrently \"webpack --watch\" \"gulp watch\""
+    "build": "webpack",
+    "watch": "webpack --watch"
   },
   "devDependencies": {
-    "concurrently": "^3.5.1",
     "eslint": "^4.19.1",
     "eslint-loader": "^2.0.0",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^5.0.0",
-    "gulp-sass": "^3.2.1",
-    "gulp-sourcemaps": "^2.6.4",
     "source-map-loader": "^0.2.3",
     "webpack": "^4.4.1",
     "webpack-cli": "^2.0.13"

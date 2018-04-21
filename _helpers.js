@@ -1,4 +1,4 @@
-const fs = require('fs');
+const { readdirSync } = require('fs');
 const path = require('path');
 
 module.exports = {
@@ -17,7 +17,7 @@ module.exports = {
 
         const files = [];
 
-        fs.readdirSync(folderPath).forEach(file => {
+        readdirSync(folderPath).forEach(file => {
             files.push(file);
         });
 

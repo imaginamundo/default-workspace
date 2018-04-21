@@ -8,14 +8,9 @@ const structureEntries = helper.dynamicEntries(
     `${ config.src.js }/structure`,
     'js'
 );
-const vendorEntries = helper.dynamicEntries(
-    `${ config.src.js }/vendor`,
-    'js'
-);
 
 const entries = {
     'js/global': `${ config.src.js }/global.js`,
-    ...vendorEntries,
     ...structureEntries
 }
 
