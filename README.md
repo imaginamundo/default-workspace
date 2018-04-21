@@ -10,9 +10,6 @@ Using Webpack to make ES6 compatible with current browsers and Gulp to compile C
 
 ## Source
 - [/js](#javascript-src)
-    - [/vendor](#vendor-src)
-        - plugin_1.js
-        - plugin_2.js
     - [/components](#components-src)
         - component_1.js
         - component_2.js
@@ -51,9 +48,6 @@ Generated with Gulp.
 
 ## Distribution
 - /js
-    - vendor
-        - plugin_1.min.js
-        - plugin_2.min.js
     - structure
         - home.js
         - contact.js

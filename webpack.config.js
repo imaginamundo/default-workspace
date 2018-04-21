@@ -1,6 +1,8 @@
 require('dotenv').config();
 
-const { resolve } = require('path');
+const { resolve }       = require('path');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 const { dynamicEntries } = require('./_helpers');
 
 const structureEntries = dynamicEntries(
@@ -14,24 +16,30 @@ const entries = {
 }
 
 module.exports = {
-    mode: 'none',
+    mode: process.env.ENVIRONMENT,
     entry: entries,
     output: {
         filename: '[name].js',
         path: resolve(__dirname, 'dist')
     },
-    devtool: 'source-map',
     module: {
         rules: [
             {
-                enforce: "pre",
                 test: /\.js$/,
                 exclude: /node_modules/,
-                use: [
-                    "source-map-loader",
-                    "eslint-loader"
-                ]
+                use: ['babel-loader', 'eslint-loader']
+            },
+            {
+                test: /\.scss$/,
+                use: [MiniCssExtractPlugin.loader, "sass-loader"]
             }
         ]
-    }
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: "[name].css",
+            chunkFilename: "[id].css"
+        })
+    ],
+    devtool: "source-map"
 };

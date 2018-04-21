@@ -66,15 +66,23 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/structure/contact.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 2:
-/***/ (function(module, exports) {
+/***/ "./src/js/structure/contact.js":
+/*!*************************************!*\
+  !*** ./src/js/structure/contact.js ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
-console.log('Hello contact!');
+"use strict";
+
+
+var name = 'Contact';
+console.log("Hello ".concat(name, "!"));
 
 /***/ })
 

@@ -66,13 +66,20 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 3);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/structure/home.js");
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ 3:
-/***/ (function(module, exports) {
+/***/ "./src/js/structure/home.js":
+/*!**********************************!*\
+  !*** ./src/js/structure/home.js ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
 
 console.log('Hello home!');
 

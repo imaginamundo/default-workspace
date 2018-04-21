@@ -1,1 +1,3 @@
-console.log('Hello contact!');
+const name = 'Contact';
+
+console.log(`Hello ${ name }!`);

@@ -66,28 +66,51 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = "./src/js/global.js");
 /******/ })
 /************************************************************************/
-/******/ ([
-/* 0 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+/******/ ({
+
+/***/ "./src/js/components/test.js":
+/*!***********************************!*\
+  !*** ./src/js/components/test.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _components_test__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
 
 
-console.log(Object(_components_test__WEBPACK_IMPORTED_MODULE_0__["default"])());
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _default = function _default() {
+  return 'Hello World!';
+};
+
+exports.default = _default;
 
 /***/ }),
-/* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+/***/ "./src/js/global.js":
+/*!**************************!*\
+  !*** ./src/js/global.js ***!
+  \**************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = (() => 'Hello world!');
+
+
+var _test = _interopRequireDefault(__webpack_require__(/*! ./components/test */ "./src/js/components/test.js"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+console.log((0, _test.default)());
 
 /***/ })
-/******/ ]);
+
+/******/ });
 //# sourceMappingURL=global.js.map
