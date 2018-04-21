@@ -1,7 +1,8 @@
 require('dotenv').config();
-
-const { resolve }       = require('path');
+const path              = require('path');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 
 const { dynamicEntries } = require('./_helpers');
 
@@ -20,7 +21,7 @@ module.exports = {
     entry: entries,
     output: {
         filename: '[name].js',
-        path: resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist')
     },
     module: {
         rules: [
@@ -31,14 +32,16 @@ module.exports = {
             },
             {
                 test: /\.scss$/,
-                use: [MiniCssExtractPlugin.loader, "sass-loader"]
+                use: ExtractTextPlugin.extract({
+                    use: "css-loader"
+                })
             }
+
         ]
     },
     plugins: [
-        new MiniCssExtractPlugin({
-            filename: "[name].css",
-            chunkFilename: "[id].css"
+        new ExtractTextPlugin('[name].css', {
+            allChunks: true
         })
     ],
     devtool: "source-map"
