@@ -198,7 +198,7 @@
   flex-direction: column;
   flex-grow: 1;
   flex: 1;
-  margin-left: 1rem; }
+  width: 100%; }
 
 .product-card__title {
   padding-bottom: 1rem;
@@ -247,6 +247,16 @@
     border-left-color: #028fe1; }
 
 .product-card__installments {
+  margin: 0; }
+
+.product-card__installments-value {
+  font-size: 1.4em;
+  line-height: 1.62em; }
+
+.product-card__price {
+  margin: 0; }
+
+.product-card__installments {
   color: #10b346;
   font-weight: bold; }
 
@@ -261,7 +271,9 @@
   .product-cart__gallery {
     flex-direction: column;
     margin-right: 1rem;
-    margin-bottom: 0; } }
+    margin-bottom: 0; }
+  .product-card__information {
+    margin-left: 1rem; } }
 
 body {
   margin: 0;
@@ -287,3 +299,9 @@ a {
   text-decoration: none; }
   a:hover {
     text-decoration: underline; }
+
+h1, h2, h3 {
+  line-height: 1.2em; }
+
+.text--success {
+  color: #10b346; }

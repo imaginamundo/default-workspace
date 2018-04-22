@@ -47,7 +47,7 @@
     flex-direction: column;
     flex-grow: 1;
     flex: 1;
-    margin-left: $grid-gap;
+    width: 100%;
 }
 .product-card__title {
     padding-bottom: $grid-gap;
@@ -99,6 +99,16 @@
     }
 }
 .product-card__installments {
+    margin: 0;
+}
+.product-card__installments-value {
+    font-size: 1.4em;
+    line-height: $line-height;
+}
+.product-card__price {
+    margin: 0;
+}
+.product-card__installments {
     color: $success;
     font-weight: bold;
 }
@@ -117,5 +127,8 @@
         flex-direction: column;
         margin-right: $grid-gap;
         margin-bottom: 0;
-    }   
+    }
+    .product-card__information {
+        margin-left: $grid-gap;
+    } 
 }

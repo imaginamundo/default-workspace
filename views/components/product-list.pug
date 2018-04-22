@@ -14,7 +14,8 @@ mixin product-list(products)
                 a(href="#")
                     img.product-card__image-tag(src=product.images[0], alt=product.name)
             .product-card__information
-                h2.product-card__title= product.name
+                h2.product-card__title
+                    a(href="#")= product.name
                     button.button--unstyled.product-card__wishlist(data-wishlist-button)
                         include ../icons/heart
                 .product-card__details
@@ -23,7 +24,7 @@ mixin product-list(products)
                             small #{ product.price.installments }x R$
                             |
                             |
-                            span= helper.formatCurrency(product.price.installmentValue)
+                            span.product-card__installments-value= helper.formatCurrency(product.price.installmentValue)
                         p.product-card__price: small ou
                             |
                             |
