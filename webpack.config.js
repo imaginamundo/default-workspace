@@ -3,7 +3,7 @@ const { resolve }          = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 
-const { dynamicEntries } = require('./_helpers');
+const { dynamicEntries } = require('./helpers/folder');
 
 const structureEntries = dynamicEntries(
     `${ process.env.SRC_DIR }/js/structure`,
