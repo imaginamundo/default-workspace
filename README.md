@@ -25,11 +25,6 @@ Generated with webpack. Use ES6 features and ESlinter.
 
 *To do:* Configure eslinter
 
-### Vendor src
-External plugins or libraries without codebase dependencies, like *jQuery*, *Flickity* or others.
-
-*To do:* Minified one by one, without transpile.
-
 ### Components src
 Used by `structure` and `global`. Components will be called by others `.js`. Components will not be minified or transpiled alone.
 

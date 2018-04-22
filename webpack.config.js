@@ -6,12 +6,12 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const { dynamicEntries } = require('./_helpers');
 
 const structureEntries = dynamicEntries(
-    `${ process.env.WEBPACK_SRC_JS }/structure`,
+    `${ process.env.SRC_DIR }/js/structure`,
     'js'
 );
 
 const entries = {
-    'js/global': `${ process.env.WEBPACK_SRC_JS }/global.js`,
+    'js/global': `${ process.env.SRC_DIR }/js/global.js`,
     ...structureEntries
 }
 
@@ -38,9 +38,9 @@ module.exports = {
                         options: {
                             modules: true,
                             sourceMap: true,
-                            importLoader: 2
-                        }
-                    }
+                        },
+                    },
+                    { loader: 'sass-loader' }
                 ]
             }
         ]
