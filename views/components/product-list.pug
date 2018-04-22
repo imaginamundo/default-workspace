@@ -23,11 +23,11 @@ mixin product-list(products)
                             small #{ product.price.installments }x R$
                             |
                             |
-                            span= product.price.installmentValue
+                            span= helper.formatCurrency(product.price.installmentValue)
                         p.product-card__price: small ou
                             |
                             |
-                            b.text--success R$ #{ product.price.value }
+                            b.text--success R$ #{ helper.formatCurrency(product.price.value) }
                             |
                             | à vista
                     .product-card__cta

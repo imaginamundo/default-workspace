@@ -65,12 +65,15 @@ const { items: products } = {
     ]
 }
 
-console.log(products);
+const { formatCurrency } = require('../helpers/number');
 
 module.exports = function(req, res) {
     res.render('category', {
         title: 'Buscapé · Tecnologia',
         category: 'Tecnologia',
-        products: products
+        products: products,
+        helper: {
+            formatCurrency: formatCurrency
+        }
     });
 }
