@@ -29,7 +29,7 @@ Generated with webpack. Use ES6 features and ESlinter.
 ### Components src
 Used by `script`. Components will be called by others `.js`. Components will not be minified or transpiled alone.
 
-Can be used by `structure`, `global` and even `components` itself.
+Can be used by `script` and even `components` itself.
 
 ### Script javascript file
 Common Javascript for every page.
@@ -39,9 +39,6 @@ Generated with node-sass, default file organization, don't compile files that st
 
 ## Distribution
 - /js
-    - structure
-        - home.js
-        - contact.js
-    - global.js
+    - script.js
 - /css
     - **/*.css
