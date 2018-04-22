@@ -17,10 +17,7 @@ Using Webpack to make ES6 compatible with current browsers and node-sass to comp
     - [/components](#components-src)
         - component_1.js
         - component_2.js
-    - [/structure](#structure-src)
-        - home.js
-        - contact.js
-    - [global.js](#global-javascript-file)
+    - [script.js](#script-file)
 - [/scss](#sass-src)
     - **/*.scss
 
@@ -30,16 +27,11 @@ Generated with webpack. Use ES6 features and ESlinter.
 *To do:* Configure eslinter
 
 ### Components src
-Used by `structure` and `global`. Components will be called by others `.js`. Components will not be minified or transpiled alone.
+Used by `script`. Components will be called by others `.js`. Components will not be minified or transpiled alone.
 
 Can be used by `structure`, `global` and even `components` itself.
 
-### Structure src
-For specifics `.js`, can be used if you want multiple files for each page.
-
-Minified and transpiled for every file.
-
-### Global javascript file
+### Script javascript file
 Common Javascript for every page.
 
 ### Sass src
