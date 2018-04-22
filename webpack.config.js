@@ -1,16 +1,9 @@
 require('dotenv').config();
+
 const { resolve } = require('path');
 
-const { dynamicEntries } = require('./helpers/folder');
-
-const structureEntries = dynamicEntries(
-    `${ process.env.SRC_DIR }/js/structure`,
-    'js'
-);
-
 const entries = {
-    'js/global': `${ process.env.SRC_DIR }/js/global.js`,
-    ...structureEntries
+    'js': `${ process.env.SRC_DIR }/js/script.js`,
 }
 
 module.exports = {
