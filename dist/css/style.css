@@ -101,6 +101,9 @@
   padding-top: 1rem;
   padding-bottom: 1rem; }
 
+.header__logo-tag {
+  vertical-align: middle; }
+
 .header__menu {
   position: relative;
   margin-left: auto; }
@@ -132,6 +135,7 @@
   padding-right: 1rem;
   padding-left: 1rem;
   background: #dbb000;
+  box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, 0.1);
   opacity: 0;
   visibility: hidden;
   transition: opacity .2s ease-in-out, visibility .2s ease-in-out, top .2s ease-in-out; }
