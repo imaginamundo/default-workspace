@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "concurrently \"webpack -p\" \"node-sass src/scss -o dist/css\"",
     "build:css": "node-sass src/scss -o dist/css --source-map true",
-    "build:js": "webpack -p", 
+    "build:js": "webpack -p",
     "watch": "concurrently \"webpack -w\" \"node-sass -w src/scss -o dist/css\""
   },
   "devDependencies": {
@@ -26,6 +26,8 @@
   },
   "dependencies": {
     "concurrently": "^3.5.1",
-    "dotenv": "^5.0.1"
+    "dotenv": "^5.0.1",
+    "express": "^4.16.3",
+    "pug": "^2.0.3"
   }
 }

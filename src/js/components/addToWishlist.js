@@ -8,11 +8,13 @@ export function toggleWishlistIcon(elem, active) {
 }
 
 export function addToWishlist() {
-    const wishlistButton = document.querySelector('[data-wishlist-button]');
+    const wishlistButton = document.querySelectorAll('[data-wishlist-button]');
 
-    wishlistButton.addEventListener('click', function() {
-        const wishlistIcon = this.querySelector('svg');
+    wishlistButton.forEach(wishlistButton => {
+        wishlistButton.addEventListener('click', () => {
+            const wishlistIcon = wishlistButton.querySelector('svg');
 
-        wishlistIcon.classList.toggle('icon--fill');
-    });
+            wishlistIcon.classList.toggle('icon--fill');
+        });
+    })
 }

@@ -1,5 +1,4 @@
 const { readdirSync } = require('fs');
-const path = require('path');
 
 module.exports = {
     sweepFolder: (folderPath) => {

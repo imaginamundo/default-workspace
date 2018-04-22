@@ -1,0 +1,36 @@
+mixin product-list(products)
+    each product, index in products
+        - product = product.product
+        .product-card
+            .product-cart__gallery
+                each image, index in product.images
+                    if (index === 0)
+                        button.button--unstyled.product-cart__gallery--selected(data-fast-gallery=index)
+                            img.product-cart__galery-image(src=image)
+                    else
+                        button.button--unstyled(data-fast-gallery=index)
+                            img.product-cart__galery-image(src=image)
+            .product-card__image
+                a(href="#")
+                    img.product-card__image-tag(src=product.images[0], alt=product.name)
+            .product-card__information
+                h2.product-card__title= product.name
+                    button.button--unstyled.product-card__wishlist(data-wishlist-button)
+                        include ../icons/heart
+                .product-card__details
+                    .product-card__prices
+                        p.product-card__installments
+                            small #{ product.price.installments }x R$
+                            |
+                            |
+                            span= product.price.installmentValue
+                        p.product-card__price: small ou
+                            |
+                            |
+                            b.text--success R$ #{ product.price.value }
+                            |
+                            | à vista
+                    .product-card__cta
+                        p: button.button.button--success.button--small.button--icon-text
+                            span Adicionar ao carrinho
+                            include ../icons/chevron-right

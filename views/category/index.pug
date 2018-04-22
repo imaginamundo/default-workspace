@@ -1,0 +1,8 @@
+extends ../layout/default
+block content
+    .wrap
+        h1= category
+    section.product-list
+        .wrap
+            include ../components/product-list
+            +product-list(products)

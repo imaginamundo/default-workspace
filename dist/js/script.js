@@ -97,10 +97,12 @@ function toggleWishlistIcon(elem, active) {
 }
 
 function addToWishlist() {
-  var wishlistButton = document.querySelector('[data-wishlist-button]');
-  wishlistButton.addEventListener('click', function () {
-    var wishlistIcon = this.querySelector('svg');
-    wishlistIcon.classList.toggle('icon--fill');
+  var wishlistButton = document.querySelectorAll('[data-wishlist-button]');
+  wishlistButton.forEach(function (wishlistButton) {
+    wishlistButton.addEventListener('click', function () {
+      var wishlistIcon = wishlistButton.querySelector('svg');
+      wishlistIcon.classList.toggle('icon--fill');
+    });
   });
 }
 

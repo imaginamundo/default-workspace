@@ -1,0 +1,21 @@
+header.header
+    .header__wrap.wrap
+        a.header__logo(href="/", title=title)
+            img.header__logo-tag(src="/dist/images/logo.svg", alt=title)
+        nav.header__menu
+            button.header__menu-button.button--unstyled(data-menu-button)
+                include ../icons/menu
+            span.header__menu-label 0
+        .dynamic-cart(data-dynamic-cart)
+            .dynamic-cart__message
+                h2 Seu carrinho está vazio
+                p Encontre os produtos que deseja no <strong>Buscapé</strong>!
+            .dunamic-cart__template(template-dynamic-cart)
+                button.button--unstyled.dynamic-cart__remove
+                    include ../icons/close
+                span.dynamic-cart__image
+                    img(template-dynamic-cart-image)
+                p.dynamic-cart__name
+                    a(href="#", template-dynamic-cart-name)
+                p.dynamic-cart__installments(template-dynamic-cart-installments)
+                p.dynamic-cart__price(template-dynamic-cart-price)
