@@ -108,6 +108,29 @@ function addToWishlist() {
 
 /***/ }),
 
+/***/ "./src/js/components/handleImages.js":
+/*!*******************************************!*\
+  !*** ./src/js/components/handleImages.js ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+module.exports = {
+  handleImageErrors: function handleImageErrors() {
+    var images = document.querySelectorAll('img');
+    images.forEach(function (image) {
+      image.addEventListener('error', function () {
+        image.src = '/dist/images/placeholder.png';
+      });
+    });
+  }
+};
+
+/***/ }),
+
 /***/ "./src/js/components/toggleMenu.js":
 /*!*****************************************!*\
   !*** ./src/js/components/toggleMenu.js ***!
@@ -147,11 +170,16 @@ var _toggleMenu = __webpack_require__(/*! ./components/toggleMenu */ "./src/js/c
 
 var _addToWishlist = __webpack_require__(/*! ./components/addToWishlist.js */ "./src/js/components/addToWishlist.js");
 
-console.log('Buscapé'); // Menu
+var _handleImages = __webpack_require__(/*! ./components/handleImages */ "./src/js/components/handleImages.js");
+
+console.log('Buscapé');
+window.projectData = {}; // Menu
 
 (0, _toggleMenu.toggleMenu)(); // Wishlist
 
-(0, _addToWishlist.addToWishlist)();
+(0, _addToWishlist.addToWishlist)(); // Handle image loading errors
+
+(0, _handleImages.handleImageErrors)();
 
 /***/ })
 

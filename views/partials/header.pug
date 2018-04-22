@@ -10,12 +10,5 @@ header.header
             .dynamic-cart__message
                 h2 Seu carrinho está vazio
                 p Encontre os produtos que deseja no <strong>Buscapé</strong>!
-            .dunamic-cart__template(template-dynamic-cart)
-                button.button--unstyled.dynamic-cart__remove
-                    include ../icons/close
-                span.dynamic-cart__image
-                    img(template-dynamic-cart-image)
-                p.dynamic-cart__name
-                    a(href="#", template-dynamic-cart-name)
-                p.dynamic-cart__installments(template-dynamic-cart-installments)
-                p.dynamic-cart__price(template-dynamic-cart-price)
+
+include ../templates/dynamic-header

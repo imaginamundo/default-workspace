@@ -106,13 +106,14 @@
     line-height: $line-height;
 }
 .product-card__price {
-    margin: 0;
+    margin-top: 0;
 }
 .product-card__installments {
     color: $success;
     font-weight: bold;
 }
 .product-card__cta {
+    margin-right: auto;
     margin-left: auto;
 }
 
@@ -130,5 +131,8 @@
     }
     .product-card__information {
         margin-left: $grid-gap;
-    } 
+    }
+    .product-card__cta {
+        margin-right: 0;
+    }
 }
