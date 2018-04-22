@@ -3,7 +3,7 @@ require('dotenv').config();
 const { resolve } = require('path');
 
 const entries = {
-    'js': `${ process.env.SRC_DIR }/js/script.js`,
+    'js/script': `${ process.env.SRC_DIR }/js/script.js`,
 }
 
 module.exports = {

@@ -1,0 +1,41 @@
+.header {
+    position: relative;
+    background: $primary;
+}
+.header__wrap {
+    display: flex;
+    align-items: center;
+    padding-top: $grid-gap;
+    padding-bottom: $grid-gap;
+}
+.header__menu {
+    position: relative;
+    margin-left: auto;
+}
+.header__menu-label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 4px;
+    width: 1em;
+    height: 1em;
+    background: $danger;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 1em;
+}
+.dynamic-cart {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    padding-right: $grid-gap;
+    padding-left: $grid-gap;
+    background: #dbb000;
+    opacity: 0;
+    visibility: hidden;
+}

@@ -1,0 +1,14 @@
+html {
+    color: $font-color;
+    font-family: $font;
+    font-size: $font-size;
+    line-height: $line-height;
+}
+
+a {
+    color: $font-color;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}

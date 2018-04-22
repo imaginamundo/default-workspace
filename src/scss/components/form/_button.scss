@@ -1,0 +1,101 @@
+@mixin clear-button-style {
+    padding-top: 0;
+    padding-bottom: 0;
+    margin: 0;
+    
+    -webkit-border-radius: 0;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+}
+@mixin button-style {
+    padding-top: $input-padding / 2;
+    padding-right: $input-padding;
+    padding-bottom: $input-padding / 2;
+    padding-left: $input-padding;
+    min-height: $input-height;
+    box-sizing: border-box;
+    vertical-align: middle;
+
+    border-color: $button-border-color;
+    border-style: solid;
+    border-radius: $input-border-radius;
+    border-width: $input-border-size;
+
+    background: $neutral;
+    
+    color: $input-font-color;
+    font-family: $input-font;
+    font-size: $input-font-size;
+
+    user-select: none;
+    cursor: pointer;
+    &:focus {
+        outline: none;
+    }
+    &:hover {
+        background: lighten($neutral, 3);
+    }
+    &:active {
+        background: darken($neutral, 6);
+    }
+}
+@mixin button-states($button-state-background, $button-state-color) {
+    background: $button-state-background;
+    color: $button-state-color;
+    border-color: $button-state-background;
+    &:hover {
+        background: lighten($button-state-background, 3);
+    }
+    &:active {
+        background: darken($button-state-background, 6);
+    }
+}
+
+.button, {
+    @include clear-button-style;
+    @include button-style;
+}
+
+.button--unstyled {
+    @include clear-button-style;
+    border: none;
+    padding: 8px;
+    margin: 0;
+    background: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color .2s ease-in-out;
+    &:hover {
+        background: rgba(0, 0, 0, .03);
+    }
+    &:active {
+        color: $input-font-color;
+    }
+}
+.button--icon-text {
+    display: inline-flex;
+    align-items: center;
+    padding-right: $input-padding - ($input-padding / 4);
+    padding-left: $input-padding - ($input-padding / 4);
+    min-width: $input-height;
+    text-align: center;
+    > * {
+        margin-right: $input-padding / 4;
+        margin-left: $input-padding / 4;
+    }
+    .icon {
+        flex-shrink: 0;
+    }
+}
+@each $key, $val in $buttons {
+    $button-background: nth($val, 1);
+    $button-color: nth($val, 2);
+    .button--#{$key} {
+        @include button-states($button-background, $button-color);
+    }
+}
+.button--small {
+    font-size: 12px;
+}
+

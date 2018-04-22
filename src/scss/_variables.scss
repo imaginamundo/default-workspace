@@ -1,0 +1,37 @@
+// Colors
+$neutral: #e6e6e6;
+$primary: #ffce00;
+$secondary: #028fe1;
+
+$success: #10b346;
+$danger: #d8272d;
+
+$text: #444;
+
+
+// Typography
+$font: 'Montserrat', sans-serif;
+$font-color: $text;
+$font-size: 1em;
+$line-height: 1.62em;
+
+// Grid
+$grid-gap: 1rem;
+
+
+// Form
+$input-padding: 1em;
+$input-height: 2.5em;
+$input-border-size: 1px;
+$input-border-radius: 2px;
+$input-font: $font;
+$input-font-size: $font-size;
+$input-font-color: $text;
+
+// Buttons
+$buttons: (
+    primary: ($primary, #000),
+    success: ($success, #fff),
+    danger: ($danger, #fff)
+);
+$button-border-color: #000;

@@ -9,62 +9,83 @@
 </head>
 <body ontouchstart="">
     <header class="header">
-        <a href="#" class="header__logo">
-
-        </a>
-        <nav class="header__cart">
-            <i class="icon"> </i>
-            <span class="header__cart-label">{ cart.quantity }</span>
-            <div class="header__cart-itens">
-                <div href="#" class="header__product">
-                    <button class="header__product-remove">
-                        <i class="icon"></i>
+        <div class="header__wrap wrap">
+            <a href="#" class="header__logo" title="Buscapé">
+                <img src="../dist/images/logo.svg" alt="Buscapé">
+            </a>
+            <nav class="header__menu">
+                <button class="button--unstyled">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <span class="header__menu-label">0</span>
+            </nav>
+            <div class="dynamic-cart">
+                <div class="dynamic-cart__message">
+                    <h2>Seu carrinho está vazio</h2>
+                    <p>Encontre os produtos que deseja no <strong>Buscapé</strong>!</p>
+                </div>
+                <div href="#" class="dynamic-cart__product">
+                    <button class="button--unstyled dynamic-cart__remove">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-x"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
                     </button>
-                    <span class="header__product-image">
+                    <span class="dynamic-cart__image">
                         <img src="#" alt="{ cart.product.name }" />
                     </span>
-                    <p class="header__product-name">
+                    <p class="dynamic-cart__name">
                         <a href="#">{ cart.product.name }</a>
                     </p>
-                    <p class="header__product-installments">{ cart.product.installments }</p>
-                    <p class="header__product-price">{ cart.product.price }</p>
+                    <p class="dynamic-cart__installments">{ cart.product.installments }</p>
+                    <p class="dynamic-cart__price">{ cart.product.price }</p>
                 </div>
             </div>
-        </nav>
+        </div>
     </header>
+    <div class="wrap">
+        <h1>{ category }</h1>
+    </div>
     <section class="product-list">
-        <div class="product-list__product">
-            <div class="product-list__gallery">
-                <button class="button--unstyled">
-                    <img src="#" />
-                </button>
-            </div>
-            <div class="product-list__image">
-                <img src="#" alt="{ product.name }" />
-            </div>
-            <div class="product-list__information">
-                <h2 class="product-list__title">
-                    <a href="#">{ product.name }</a>
-                    <i class="icon"></i>
-                </h2>
-                <div class="flex">
-                    <div>
-                        <p>
-                            <span class="product-label">{ product.label }</span>
-                        </p>
-                        <p class="product-list__installments">{ product.installments }</p>
-                        <p class="product-list__price">{ product.price }</p>
-                    </div>
-                    <div>
-                        <button class="button button--success">
-                            <span>Adicionar ao carrinho</span>
-                            <i class="icon"></i>
+        <div class="wrap">
+            <div class="product-card">
+                <div class="product-card__gallery">
+                    <button class="button--unstyled">
+                        <img src="#" />
+                    </button>
+                </div>
+                <div class="product-card__image">
+                    <a href="#">
+                        <img src="#" alt="{ product.name }" class="product-card__image-tag">
+                    </a>
+                </div>
+                <div class="product-card__information">
+                    <h2 class="product-card__title">
+                        <a href="#" class="product-card__title-link">{ product.name }</a>
+                        <button class="button--unstyled product-card__wishlist">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                         </button>
+                    </h2>
+                    <div class="product-card__details">
+                        <div class="product-card__prices">
+                            <p>
+                                <span class="product-card__label">{ product.label }</span>
+                            </p>
+                            <p class="product-card__installments">{ product.installments }</p>
+                            <p class="product-card__price">
+                                <small>{ product.price }</small>
+                            </p>
+                        </div>
+                        <div class="product-card__cta">
+                            <p>
+                                <button class="button button--success button--small button--icon-text">
+                                    <span>Adicionar ao carrinho</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-chevron-right"><polyline points="9 18 15 12 9 6"></polyline></svg>
+                                </button>
+                            </p>
+                        </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 </body>
 </html>
