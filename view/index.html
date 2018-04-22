@@ -14,12 +14,12 @@
                 <img src="../dist/images/logo.svg" alt="Buscapé">
             </a>
             <nav class="header__menu">
-                <button class="button--unstyled">
+                <button class=" header__menu-button button--unstyled" data-menu-button>
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
                 </button>
                 <span class="header__menu-label">0</span>
             </nav>
-            <div class="dynamic-cart">
+            <div class="dynamic-cart" data-dynamic-cart>
                 <div class="dynamic-cart__message">
                     <h2>Seu carrinho está vazio</h2>
                     <p>Encontre os produtos que deseja no <strong>Buscapé</strong>!</p>
@@ -59,7 +59,7 @@
                 <div class="product-card__information">
                     <h2 class="product-card__title">
                         <a href="#" class="product-card__title-link">{ product.name }</a>
-                        <button class="button--unstyled product-card__wishlist">
+                        <button class="button--unstyled product-card__wishlist" data-wishlist-button>
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-heart"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                         </button>
                     </h2>
@@ -87,5 +87,6 @@
         </div>
     </section>
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="../dist/js/script.js"></script>
 </body>
 </html>

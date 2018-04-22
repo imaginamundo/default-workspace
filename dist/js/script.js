@@ -71,10 +71,10 @@
 /************************************************************************/
 /******/ ({
 
-/***/ "./src/js/components/test.js":
-/*!***********************************!*\
-  !*** ./src/js/components/test.js ***!
-  \***********************************/
+/***/ "./src/js/components/addToWishlist.js":
+/*!********************************************!*\
+  !*** ./src/js/components/addToWishlist.js ***!
+  \********************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -84,13 +84,50 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = void 0;
+exports.toggleWishlistIcon = toggleWishlistIcon;
+exports.addToWishlist = addToWishlist;
 
-var _default = function _default() {
-  return 'Hello World!';
-};
+function toggleWishlistIcon(elem, active) {
+  if (active) {
+    elem.classList.add('icon--fill');
+    return;
+  }
 
-exports.default = _default;
+  elem.classList.remove('icon--fill');
+}
+
+function addToWishlist() {
+  var wishlistButton = document.querySelector('[data-wishlist-button]');
+  wishlistButton.addEventListener('click', function () {
+    var wishlistIcon = this.querySelector('svg');
+    wishlistIcon.classList.toggle('icon--fill');
+  });
+}
+
+/***/ }),
+
+/***/ "./src/js/components/toggleMenu.js":
+/*!*****************************************!*\
+  !*** ./src/js/components/toggleMenu.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.toggleMenu = toggleMenu;
+
+function toggleMenu() {
+  var menuButton = document.querySelector('[data-menu-button]');
+  menuButton.addEventListener('click', function () {
+    var dynamicCart = document.querySelector('[data-dynamic-cart]');
+    dynamicCart.classList.toggle('dynamic-cart--oppened');
+  });
+}
 
 /***/ }),
 
@@ -104,11 +141,15 @@ exports.default = _default;
 "use strict";
 
 
-var _test = _interopRequireDefault(__webpack_require__(/*! ./components/test */ "./src/js/components/test.js"));
+var _toggleMenu = __webpack_require__(/*! ./components/toggleMenu */ "./src/js/components/toggleMenu.js");
 
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var _addToWishlist = __webpack_require__(/*! ./components/addToWishlist.js */ "./src/js/components/addToWishlist.js");
 
-console.log((0, _test.default)());
+console.log('Buscapé'); // Menu
+
+(0, _toggleMenu.toggleMenu)(); // Wishlist
+
+(0, _addToWishlist.addToWishlist)();
 
 /***/ })
 

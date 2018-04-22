@@ -1,3 +1,9 @@
-import test from './components/test';
+console.log('Buscapé');
 
-console.log(test());
+// Menu
+import { toggleMenu } from './components/toggleMenu';
+toggleMenu();
+
+// Wishlist
+import { addToWishlist } from './components/addToWishlist.js';
+addToWishlist();

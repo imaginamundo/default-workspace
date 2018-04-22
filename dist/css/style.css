@@ -47,8 +47,6 @@
   transition: background-color .2s ease-in-out; }
   .button--unstyled:hover {
     background: rgba(0, 0, 0, 0.03); }
-  .button--unstyled:active {
-    color: #444; }
 
 .button--icon-text {
   display: inline-flex;
@@ -107,6 +105,9 @@
   position: relative;
   margin-left: auto; }
 
+.header__menu-button {
+  color: #444; }
+
 .header__menu-label {
   position: absolute;
   bottom: 0;
@@ -124,7 +125,7 @@
 
 .dynamic-cart {
   position: absolute;
-  top: 100%;
+  top: 50%;
   right: 0;
   left: 0;
   z-index: 100;
@@ -132,10 +133,19 @@
   padding-left: 1rem;
   background: #dbb000;
   opacity: 0;
-  visibility: hidden; }
+  visibility: hidden;
+  transition: opacity .2s ease-in-out, visibility .2s ease-in-out, top .2s ease-in-out; }
+
+.dynamic-cart--oppened {
+  top: 100%;
+  opacity: 1;
+  visibility: visible; }
 
 .icon {
   vertical-align: middle; }
+
+.icon--fill {
+  fill: currentColor; }
 
 .product-card {
   display: flex;

@@ -12,6 +12,9 @@
     position: relative;
     margin-left: auto;
 }
+.header__menu-button {
+    color: $font-color;
+}
 .header__menu-label {
     position: absolute;
     bottom: 0;
@@ -29,7 +32,7 @@
 }
 .dynamic-cart {
     position: absolute;
-    top: 100%;
+    top: 50%;
     right: 0;
     left: 0;
     z-index: 100;
@@ -38,4 +41,12 @@
     background: #dbb000;
     opacity: 0;
     visibility: hidden;
+    transition: opacity .2s ease-in-out,
+                visibility .2s ease-in-out,
+                top .2s ease-in-out;
+}
+.dynamic-cart--oppened {
+    top: 100%;
+    opacity: 1;
+    visibility: visible;
 }
