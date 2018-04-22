@@ -7,10 +7,10 @@
   "scripts": {
     "start": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack -p",
-    "build:css": "node-sass -include-path src/scss -o dist/css --source-map true",
+    "build": "concurrently \"webpack -p\" \"node-sass src/scss -o dist/css\"",
+    "build:css": "node-sass src/scss -o dist/css --source-map true",
     "build:js": "webpack -p", 
-    "watch": "webpack --watch"
+    "watch": "concurrently \"webpack -w\" \"node-sass -w src/scss -o dist/css\""
   },
   "devDependencies": {
     "@babel/core": "^7.0.0-beta.44",
