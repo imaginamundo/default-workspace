@@ -1,7 +1,7 @@
 # Imagina Mundo default workspace
 Created to use vanilla Javascript with ES6 and Sass.
 
-Using Webpack to make ES6 compatible with current browsers and Gulp to compile CSS files.
+Using Webpack to make ES6 compatible with current browsers and node-sass to compile CSS files.
 
 ## Commands
 `yarn build` or `npm run build`: Build static assets;
@@ -39,7 +39,7 @@ Minified and transpiled for every file.
 Common Javascript for every page.
 
 ### Sass src
-Generated with Gulp.
+Generated with node-sass, default file organization, don't compile files that start with underscore, compile any other file into current folder.
 
 ## Distribution
 - /js
