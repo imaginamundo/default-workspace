@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Buscapé</title>
+    <link rel="stylesheet" href="../dist/css/style.css">
+</head>
+<body ontouchstart="">
+    <header class="header">
+        <a href="#" class="header__logo">
+
+        </a>
+        <nav class="header__cart">
+            <i class="icon"> </i>
+            <span class="header__cart-label">{ cart.quantity }</span>
+            <div class="header__cart-itens">
+                <div href="#" class="header__product">
+                    <button class="header__product-remove">
+                        <i class="icon"></i>
+                    </button>
+                    <span class="header__product-image">
+                        <img src="#" alt="{ cart.product.name }" />
+                    </span>
+                    <p class="header__product-name">
+                        <a href="#">{ cart.product.name }</a>
+                    </p>
+                    <p class="header__product-installments">{ cart.product.installments }</p>
+                    <p class="header__product-price">{ cart.product.price }</p>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section class="product-list">
+        <div class="product-list__product">
+            <div class="product-list__gallery">
+                <button class="button--unstyled">
+                    <img src="#" />
+                </button>
+            </div>
+            <div class="product-list__image">
+                <img src="#" alt="{ product.name }" />
+            </div>
+            <div class="product-list__information">
+                <h2 class="product-list__title">
+                    <a href="#">{ product.name }</a>
+                    <i class="icon"></i>
+                </h2>
+                <div class="flex">
+                    <div>
+                        <p>
+                            <span class="product-label">{ product.label }</span>
+                        </p>
+                        <p class="product-list__installments">{ product.installments }</p>
+                        <p class="product-list__price">{ product.price }</p>
+                    </div>
+                    <div>
+                        <button class="button button--success">
+                            <span>Adicionar ao carrinho</span>
+                            <i class="icon"></i>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+</body>
+</html>
