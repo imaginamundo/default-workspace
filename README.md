@@ -6,6 +6,10 @@ Using Webpack to make ES6 compatible with current browsers and node-sass to comp
 ## Commands
 `yarn build` or `npm run build`: Build static assets;
 
+`yarn build:js` or `npm run build:js`: Build JS;
+
+`yarn build:css` or `npm run build:css`: Build CSS;
+
 `yarn watch` or `npm run watch`: Watch for changes on Sass and Javascript and generate files;
 
 ## Source
