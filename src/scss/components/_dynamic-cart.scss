@@ -1,0 +1,53 @@
+.dynamic-cart {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    z-index: 100;
+    background: #dbb000;
+    box-shadow: 0 -2px 4px 0 rgba(0, 0, 0, .1);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .2s ease-in-out,
+                visibility .2s ease-in-out,
+                top .2s ease-in-out;
+}
+.dynamic-cart--oppened {
+    top: 100%;
+    opacity: 1;
+    visibility: visible;
+}
+.template__dynamic-cart {
+    margin-top: 2px;
+}
+.dynamic-cart__wrap {
+    position: relative;
+    display: flex;
+    padding: $grid-gap;
+    padding-left: 2em;
+    background: #c59e00;
+}
+.dynamic-cart__remove {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: $font-color;
+}
+.dynamic-cart__image-tag {
+    margin-right: $grid-gap;
+}
+.dynamic-cart__image-tag {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+.dynamic-cart__name,
+.dynamic-cart__installments,
+.dynamic-cart__price {
+    margin: 0;
+}
+.dynamic-cart__name-tag {
+    color: #fff;
+}
