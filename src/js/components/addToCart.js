@@ -1,4 +1,4 @@
-import { formatCurrency } from '../../../helpers/number';
+import { formatInstallments, formatSpotPrice } from '../../../helpers/string';
 
 module.exports = {
     addToCart() {
@@ -9,24 +9,11 @@ module.exports = {
                 const productData = JSON.parse(productDataString);
 
                 module.exports.updateCartObject(productData);
-
-                console.log(productData);
-
                 module.exports.updateDynamicCart();
             });
         });
     },
-    updateCartObject({
-        id,
-        name,
-        images:
-            [ image ],
-        price: {
-            value,
-            installments,
-            installmentValue
-        }
-    }) {
+    updateCartObject({ id, name, images: [ image ], price: { value, installments, installmentValue } }) {
         const productData = {
             id: id,
             name: name,
@@ -87,15 +74,13 @@ module.exports = {
                 templateImage.src = image;
 
                 const templateName = productTemplate.querySelector('[template-name]');
-                templateName.textContent = name;
+                templateName.textContent = `${ name } (${ quantity })`;
 
-                const formatedInstallmentValue = formatCurrency(installmentValue);
-                const installmentsString = `${ installments }x de R$ ${ formatedInstallmentValue } `;
+                const installmentsString = formatInstallments(installments, installmentValue);
                 const templateInstallments = productTemplate.querySelector('[template-installments]');
                 templateInstallments.textContent = installmentsString;
 
-                const formatedValue = formatCurrency(value);
-                const valueString = `ou R$ ${ formatedValue } à vista`;
+                const valueString = formatSpotPrice(value);
                 const templateValue = productTemplate.querySelector('[template-price]');
                 templateValue.textContent = valueString;
 
@@ -124,26 +109,20 @@ module.exports = {
             minInstallments = Math.min(minInstallments, products[key].installments);
         }
 
-        console.log(totalValue);
-        console.log(minInstallments);
-
         const subtotalTemplate = document.querySelector('[template-dynamic-cart-subtotal]').cloneNode(true);
         subtotalTemplate.classList.remove('template');
 
         const installmentsValue = totalValue / minInstallments;
-        const formattedInstallmentsValue = formatCurrency(installmentsValue);
-        const installmentsString = `${ minInstallments }x de R$ ${ formattedInstallmentsValue }`;
+        const installmentsString = formatInstallments(minInstallments, installmentsValue);
         const templateInstallments = subtotalTemplate.querySelector('[template-installments]');
         templateInstallments.textContent = installmentsString;
 
-        const formattedValue = formatCurrency(totalValue);
-        const valueString = `ou R$ ${ formattedValue } à vista`;
+        const valueString = formatSpotPrice(totalValue);
         const templatePrice = subtotalTemplate.querySelector('[template-price]');
         templatePrice.textContent = valueString;
 
         const dynamicCart = document.querySelector('[data-dynamic-cart-products]');
 
-        console.log(subtotalTemplate);
         dynamicCart.appendChild(subtotalTemplate);     
     },
     updateMenuQuantityLabel(amount) {

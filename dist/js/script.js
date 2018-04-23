@@ -92,6 +92,35 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./helpers/string.js":
+/*!***************************!*\
+  !*** ./helpers/string.js ***!
+  \***************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _require = __webpack_require__(/*! ./number.js */ "./helpers/number.js"),
+    formatCurrency = _require.formatCurrency;
+
+module.exports = {
+  stringify: function stringify(object) {
+    return JSON.stringify(object);
+  },
+  formatInstallments: function formatInstallments(times, price) {
+    var installments = "".concat(times, "x R$ ").concat(formatCurrency(price));
+    return installments;
+  },
+  formatSpotPrice: function formatSpotPrice(price) {
+    var spotPrice = "ou R$ ".concat(formatCurrency(price), " \xE0 vista");
+    return spotPrice;
+  }
+};
+
+/***/ }),
+
 /***/ "./src/js/components/addToCart.js":
 /*!****************************************!*\
   !*** ./src/js/components/addToCart.js ***!
@@ -102,7 +131,7 @@ module.exports = {
 "use strict";
 
 
-var _number = __webpack_require__(/*! ../../../helpers/number */ "./helpers/number.js");
+var _string = __webpack_require__(/*! ../../../helpers/string */ "./helpers/string.js");
 
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest(); }
 
@@ -120,7 +149,6 @@ module.exports = {
         var productDataString = addToCartButton.closest('[data-product-details]').dataset.productDetails;
         var productData = JSON.parse(productDataString);
         module.exports.updateCartObject(productData);
-        console.log(productData);
         module.exports.updateDynamicCart();
       });
     });
@@ -200,13 +228,11 @@ module.exports = {
         var templateImage = productTemplate.querySelector('[template-image]');
         templateImage.src = image;
         var templateName = productTemplate.querySelector('[template-name]');
-        templateName.textContent = name;
-        var formatedInstallmentValue = (0, _number.formatCurrency)(installmentValue);
-        var installmentsString = "".concat(installments, "x de R$ ").concat(formatedInstallmentValue, " ");
+        templateName.textContent = "".concat(name, " (").concat(quantity, ")");
+        var installmentsString = (0, _string.formatInstallments)(installments, installmentValue);
         var templateInstallments = productTemplate.querySelector('[template-installments]');
         templateInstallments.textContent = installmentsString;
-        var formatedValue = (0, _number.formatCurrency)(value);
-        var valueString = "ou R$ ".concat(formatedValue, " \xE0 vista");
+        var valueString = (0, _string.formatSpotPrice)(value);
         var templateValue = productTemplate.querySelector('[template-price]');
         templateValue.textContent = valueString;
         productsWrap.appendChild(productTemplate);
@@ -236,21 +262,16 @@ module.exports = {
       minInstallments = Math.min(minInstallments, products[key].installments);
     }
 
-    console.log(totalValue);
-    console.log(minInstallments);
     var subtotalTemplate = document.querySelector('[template-dynamic-cart-subtotal]').cloneNode(true);
     subtotalTemplate.classList.remove('template');
     var installmentsValue = totalValue / minInstallments;
-    var formattedInstallmentsValue = (0, _number.formatCurrency)(installmentsValue);
-    var installmentsString = "".concat(minInstallments, "x de R$ ").concat(formattedInstallmentsValue);
+    var installmentsString = (0, _string.formatInstallments)(minInstallments, installmentsValue);
     var templateInstallments = subtotalTemplate.querySelector('[template-installments]');
     templateInstallments.textContent = installmentsString;
-    var formattedValue = (0, _number.formatCurrency)(totalValue);
-    var valueString = "ou R$ ".concat(formattedValue, " \xE0 vista");
+    var valueString = (0, _string.formatSpotPrice)(totalValue);
     var templatePrice = subtotalTemplate.querySelector('[template-price]');
     templatePrice.textContent = valueString;
     var dynamicCart = document.querySelector('[data-dynamic-cart-products]');
-    console.log(subtotalTemplate);
     dynamicCart.appendChild(subtotalTemplate);
   },
   updateMenuQuantityLabel: function updateMenuQuantityLabel(amount) {
