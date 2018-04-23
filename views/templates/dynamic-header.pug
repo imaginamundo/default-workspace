@@ -1,11 +1,11 @@
 .template.template__dynamic-cart(template-dynamic-cart)
     .wrap.dynamic-cart__wrap
-        button.button--unstyled.dynamic-cart__remove
+        button.button--unstyled.dynamic-cart__remove(template-remove-from-cart)
             include ../icons/close
         span.dynamic-cart__image
-            img.dynamic-cart__image-tag(template-dynamic-cart-image)
+            img.dynamic-cart__image-tag(template-image)
         div.dynamic-cart__details
             p.dynamic-cart__name
-                a.dynamic-cart__name-tag(href="#", template-dynamic-cart-name)
-            p.dynamic-cart__installments(template-dynamic-cart-installments)
-            p.dynamic-cart__price(template-dynamic-cart-price)
+                a.dynamic-cart__name-tag(href="#", template-name)
+            p.dynamic-cart__installments(template-installments)
+            p.dynamic-cart__price(template-price)

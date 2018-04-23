@@ -117,97 +117,149 @@ module.exports = {
     var addToCartButtons = document.querySelectorAll('[data-add-to-cart]');
     addToCartButtons.forEach(function (addToCartButton) {
       addToCartButton.addEventListener('click', function () {
-        var _JSON$parse = JSON.parse(addToCartButton.closest('[data-product-details]').dataset.productDetails),
-            id = _JSON$parse.id,
-            name = _JSON$parse.name,
-            _JSON$parse$images = _slicedToArray(_JSON$parse.images, 1),
-            image = _JSON$parse$images[0],
-            _JSON$parse$price = _JSON$parse.price,
-            value = _JSON$parse$price.value,
-            installments = _JSON$parse$price.installments,
-            installmentValue = _JSON$parse$price.installmentValue;
-
-        var productData = {
-          id: id,
-          name: name,
-          image: image,
-          value: value,
-          installments: installments,
-          installmentValue: installmentValue,
-          quantity: 1
-        };
-
-        if (projectData.dynamicCart) {
-          if (projectData.dynamicCart[id]) {
-            projectData.dynamicCart[id].quantity++;
-            module.exports.updateDynamicCart(projectData);
-            return;
-          }
-
-          projectData.dynamicCart[id] = productData;
-          module.exports.updateDynamicCart(projectData);
-          return;
-        }
-
-        projectData.dynamicCart = {};
-        projectData.dynamicCart[id] = productData;
-        module.exports.updateDynamicCart(projectData);
+        var productDataString = addToCartButton.closest('[data-product-details]').dataset.productDetails;
+        var productData = JSON.parse(productDataString);
+        module.exports.updateCartObject(productData);
+        console.log(productData);
+        module.exports.updateDynamicCart();
       });
     });
   },
-  updateDynamicCart: function updateDynamicCart(data) {
-    var dynamicCartMessage = document.querySelector('[data-dynamic-cart-empty]');
+  updateCartObject: function updateCartObject(_ref) {
+    var id = _ref.id,
+        name = _ref.name,
+        _ref$images = _slicedToArray(_ref.images, 1),
+        image = _ref$images[0],
+        _ref$price = _ref.price,
+        value = _ref$price.value,
+        installments = _ref$price.installments,
+        installmentValue = _ref$price.installmentValue;
 
-    if (data.dynamicCart && Object.keys(data.dynamicCart).length) {
-      dynamicCartMessage.setAttribute('hidden', '');
-      var legacyProducts = document.querySelector('[data-dynamic-cart-products]');
+    var productData = {
+      id: id,
+      name: name,
+      image: image,
+      value: value,
+      installments: installments,
+      installmentValue: installmentValue,
+      quantity: 1
+    };
 
-      if (legacyProducts) {
-        legacyProducts.remove();
+    if (projectData) {
+      if (projectData.dynamicCart) {
+        if (projectData.dynamicCart[id]) {
+          projectData.dynamicCart[id].quantity++;
+          return;
+        }
+
+        projectData.dynamicCart[id] = productData;
+        return;
       }
 
+      projectData.dynamicCart = {};
+      projectData.dynamicCart[id] = productData;
+      return;
+    }
+
+    window.projectData = {
+      dynamicCart: {}
+    };
+    projectData.dynamicCart[id] = productData;
+  },
+  updateDynamicCart: function updateDynamicCart() {
+    var dynamicCartMessage = document.querySelector('[data-dynamic-cart-empty]');
+    var legacyProducts = document.querySelector('[data-dynamic-cart-products]');
+
+    if (legacyProducts) {
+      legacyProducts.remove();
+    }
+
+    if (projectData.dynamicCart && Object.keys(projectData.dynamicCart).length) {
+      dynamicCartMessage.setAttribute('hidden', '');
       var productsWrap = document.createElement('div');
       productsWrap.dataset.dynamicCartProducts = '';
       var quantityLabel = 0;
 
-      for (var key in data.dynamicCart) {
-        var _data$dynamicCart$key = data.dynamicCart[key],
-            id = _data$dynamicCart$key.id,
-            name = _data$dynamicCart$key.name,
-            image = _data$dynamicCart$key.image,
-            quantity = _data$dynamicCart$key.quantity,
-            value = _data$dynamicCart$key.value,
-            installments = _data$dynamicCart$key.installments,
-            installmentValue = _data$dynamicCart$key.installmentValue;
+      var _loop = function _loop(key) {
+        var _projectData$dynamicC = projectData.dynamicCart[key],
+            id = _projectData$dynamicC.id,
+            name = _projectData$dynamicC.name,
+            image = _projectData$dynamicC.image,
+            quantity = _projectData$dynamicC.quantity,
+            value = _projectData$dynamicC.value,
+            installments = _projectData$dynamicC.installments,
+            installmentValue = _projectData$dynamicC.installmentValue;
         var productTemplate = document.querySelector('[template-dynamic-cart]').cloneNode(true);
         productTemplate.classList.remove('template');
+        productTemplate.dataset.productId = id;
         quantityLabel = quantityLabel + quantity;
-        var templateImage = productTemplate.querySelector('[template-dynamic-cart-image]');
+        var templateRemoveFromCart = productTemplate.querySelector('[template-remove-from-cart]');
+        templateRemoveFromCart.addEventListener('click', function () {
+          module.exports.removeFromCart(id);
+        });
+        var templateImage = productTemplate.querySelector('[template-image]');
         templateImage.src = image;
-        var templateName = productTemplate.querySelector('[template-dynamic-cart-name]');
+        var templateName = productTemplate.querySelector('[template-name]');
         templateName.textContent = name;
-        var formatedInstallmentValue = (0, _number.formatCurrency)(value);
+        var formatedInstallmentValue = (0, _number.formatCurrency)(installmentValue);
         var installmentsString = "".concat(installments, "x de R$ ").concat(formatedInstallmentValue, " ");
-        var templateInstallments = productTemplate.querySelector('[template-dynamic-cart-installments]');
+        var templateInstallments = productTemplate.querySelector('[template-installments]');
         templateInstallments.textContent = installmentsString;
         var formatedValue = (0, _number.formatCurrency)(value);
-        var valueString = "R$ ".concat(formatedValue, " \xE0 vista");
-        var templateValue = productTemplate.querySelector('[template-dynamic-cart-price]');
+        var valueString = "ou R$ ".concat(formatedValue, " \xE0 vista");
+        var templateValue = productTemplate.querySelector('[template-price]');
         templateValue.textContent = valueString;
         productsWrap.appendChild(productTemplate);
+      };
+
+      for (var key in projectData.dynamicCart) {
+        _loop(key);
       }
 
       var dynamicCart = document.querySelector('[data-dynamic-cart]');
       dynamicCart.appendChild(productsWrap);
       module.exports.updateMenuQuantityLabel(quantityLabel);
+      module.exports.updateDynamicCartSubtotal(projectData);
       return;
     }
 
     dynamicCartMessage.removeAttribute('hidden');
   },
+  updateDynamicCartSubtotal: function updateDynamicCartSubtotal() {
+    var _projectData = projectData,
+        products = _projectData.dynamicCart;
+    var totalValue = 0;
+    var minInstallments = 20;
+
+    for (var key in products) {
+      totalValue = totalValue + products[key].value * products[key].quantity;
+      minInstallments = Math.min(minInstallments, products[key].installments);
+    }
+
+    console.log(totalValue);
+    console.log(minInstallments);
+    var subtotalTemplate = document.querySelector('[template-dynamic-cart-subtotal]').cloneNode(true);
+    subtotalTemplate.classList.remove('template');
+    var installmentsValue = totalValue / minInstallments;
+    var formattedInstallmentsValue = (0, _number.formatCurrency)(installmentsValue);
+    var installmentsString = "".concat(minInstallments, "x de R$ ").concat(formattedInstallmentsValue);
+    var templateInstallments = subtotalTemplate.querySelector('[template-installments]');
+    templateInstallments.textContent = installmentsString;
+    var formattedValue = (0, _number.formatCurrency)(totalValue);
+    var valueString = "ou R$ ".concat(formattedValue, " \xE0 vista");
+    var templatePrice = subtotalTemplate.querySelector('[template-price]');
+    templatePrice.textContent = valueString;
+    var dynamicCart = document.querySelector('[data-dynamic-cart-products]');
+    console.log(subtotalTemplate);
+    dynamicCart.appendChild(subtotalTemplate);
+  },
   updateMenuQuantityLabel: function updateMenuQuantityLabel(amount) {
     var menuLabel = document.querySelector('[data-menu-label]');
     menuLabel.textContent = amount;
+  },
+  removeFromCart: function removeFromCart(sku) {
+    delete projectData.dynamicCart[sku];
+    module.exports.updateDynamicCart(projectData);
   }
 };
 

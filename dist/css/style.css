@@ -187,6 +187,18 @@ img[src$='dist/images/placeholder.png'] {
 .dynamic-cart__name-tag {
   color: #fff; }
 
+.template__dynamic-cart-subtotal {
+  text-align: right;
+  margin-bottom: 1rem; }
+
+.dynamic-header__subtotal-header {
+  border-bottom: 1px solid #444;
+  margin-bottom: 0.5rem; }
+
+.dynamic-header__subtotal-installments,
+.dynamic-header__subtotal-price {
+  margin: 0; }
+
 .product-card {
   display: flex;
   flex-direction: column;

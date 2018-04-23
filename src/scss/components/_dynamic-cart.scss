@@ -51,3 +51,16 @@
 .dynamic-cart__name-tag {
     color: #fff;
 }
+
+.template__dynamic-cart-subtotal {
+    text-align: right;
+    margin-bottom: $grid-gap;
+}
+.dynamic-header__subtotal-header {
+    border-bottom: 1px solid $font-color;
+    margin-bottom: $grid-gap / 2;
+}
+.dynamic-header__subtotal-installments,
+.dynamic-header__subtotal-price {
+    margin: 0;
+}
