@@ -13,3 +13,11 @@ addToWishlist();
 // Handle image loading errors
 import { handleImageErrors } from './components/handleImages';
 handleImageErrors();
+
+// Product card gallery
+import { switchLeadImage } from './components/productCardGallery';
+switchLeadImage();
+
+// Add to cart
+import { addToCart } from './components/addToCart';
+addToCart();

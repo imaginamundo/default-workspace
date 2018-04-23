@@ -1,7 +1,7 @@
 mixin product-list(products)
     each product, index in products
         - product = product.product
-        .product-card
+        .product-card(data-product-details=helper.stringify(product))
             .product-cart__gallery
                 each image, index in product.images
                     if (index === 0)
@@ -12,7 +12,7 @@ mixin product-list(products)
                             img.product-cart__galery-image(src=image)
             .product-card__image
                 a(href="#")
-                    img.product-card__image-tag(src=product.images[0], alt=product.name)
+                    img.product-card__image-tag(src=product.images[0], alt=product.name, data-fast-gallery-lead)
             .product-card__information
                 h2.product-card__title
                     a(href="#")= product.name
@@ -32,6 +32,6 @@ mixin product-list(products)
                             |
                             | à vista
                     .product-card__cta
-                        button.button.button--success.button--small.button--icon-text
+                        button.button.button--success.button--small.button--icon-text(data-add-to-cart)
                             span Adicionar ao carrinho
                             include ../icons/chevron-right

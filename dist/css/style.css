@@ -41,6 +41,7 @@
   border: none;
   padding: 8px;
   margin: 0;
+  box-sizing: border-box;
   background: none;
   border-radius: 4px;
   cursor: pointer;
@@ -150,6 +151,9 @@
 
 .icon--fill {
   fill: currentColor; }
+
+img[src$='dist/images/placeholder.png'] {
+  border-radius: 4px; }
 
 .product-card {
   display: flex;

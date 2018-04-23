@@ -66,6 +66,7 @@ const { items: products } = {
 }
 
 const { formatCurrency } = require('../helpers/number');
+const { stringify } = require('../helpers/string');
 
 module.exports = function(req, res) {
     res.render('category', {
@@ -73,7 +74,8 @@ module.exports = function(req, res) {
         category: 'Tecnologia',
         products: products,
         helper: {
-            formatCurrency: formatCurrency
+            formatCurrency: formatCurrency,
+            stringify: stringify
         }
     });
 }
